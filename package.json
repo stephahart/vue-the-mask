@@ -7,7 +7,7 @@
     "size": "size-limit",
     "upgrade:check": "ncu",
     "upgrade:apply": "ncu -a",
-    "build": "vue build -t lib -n VueTheMask src && cp dist/VueTheMask.umd.min.js dist/vue-the-mask.js",
+    "build": "vue-cli-service build --target lib --name VueTheMask src/index.js && cp dist/VueTheMask.umd.min.js dist/vue-the-mask.js",
     "docs:build": "cd src/docs && vue build -d ../../docs/",
     "docs:serve": "serve ./",
     "start": "yarn dev",
@@ -78,13 +78,16 @@
     "last 2 chrome versions"
   ],
   "devDependencies": {
-    "@vue/cli-plugin-babel": "^3.0.0-beta.10",
-    "@vue/cli-plugin-eslint": "^3.0.0-beta.10",
-    "@vue/cli-service": "^3.0.0-beta.10",
+    "@vue/babel-preset-app": "^5.0.0-beta.2",
+    "@vue/cli-plugin-babel": "~4.5.0",
+    "@vue/cli-plugin-eslint": "~4.5.0",
+    "@vue/cli-service": "~4.5.0",
+    "@vue/compiler-sfc": "^3.1.1",
     "babel-jest": "^22.4.3",
-    "babel-preset-vue-app": "^2.0.0",
     "codeceptjs-puppeteer": "^1.2.0",
     "cypress": "^2.1.0",
+    "eslint": "^7.0.0-rc.0",
+    "eslint-plugin-vue": "^7.0.0-beta.4",
     "jest": "^22.4.3",
     "jest-serializer-vue": "^1.0.0",
     "nightwatch": "^0.9.21",
@@ -94,10 +97,10 @@
     "serve": "^6.5.7",
     "size-limit": "^0.18.0",
     "testcafe": "^0.20.0",
-    "vue": "^2.5.16",
-    "vue-jest": "^2.5.0",
-    "vue-loader": "^14.2.2",
-    "vue-template-compiler": "^2.5.16"
+    "vue": "^3.0.0",
+    "vue-jest": "^5.0.0-0",
+    "vue-loader": "^16.2.0",
+    "vue-template-compiler": "^2.6.12"
   },
   "dependencies": {
     "start-server-and-test": "^1.4.1"
