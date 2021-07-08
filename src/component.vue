@@ -58,10 +58,10 @@ export default {
 
     refresh (value) {
       this.display = value
-      var value = masker(value, this.mask, this.masked, this.tokens)
-      if (value !== this.lastValue) {
-        this.lastValue = value
-        this.$emit('input', value)
+      var valueMasked = masker(value, this.mask, this.masked, this.tokens)
+      if (valueMasked !== this.lastValue) {
+        this.lastValue = valueMasked
+        this.$emit('input', valueMasked)
       }
     }
   }
