@@ -273,7 +273,7 @@ function directive_event(name) {
     };
   }
 
-  if (el.tagName.toLocaleUpperCase() !== 'INPUT') {
+  if (el.tagName.toLocaleUpperCase() !== 'INPUT' && !el.tagName.toLocaleUpperCase().includes('ION-INPUT')) {
     var els = el.getElementsByTagName('input');
 
     if (els.length !== 1) {
@@ -290,10 +290,10 @@ function directive_event(name) {
     InputEvent (native)
       cancelable: false
       isTrusted: true
-       composed: true
+        composed: true
       isComposing: false
       which: 0
-     Event (custom)
+      Event (custom)
       cancelable: true
       isTrusted: false
     */
@@ -328,7 +328,7 @@ function directive_event(name) {
 // EXTERNAL MODULE: external {"commonjs":"vue","commonjs2":"vue","root":"Vue"}
 var external_commonjs_vue_commonjs2_vue_root_Vue_ = __webpack_require__("8bbf");
 
-// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js??ref--12-0!./node_modules/thread-loader/dist/cjs.js!./node_modules/babel-loader/lib!./node_modules/vue-loader-v16/dist/templateLoader.js??ref--6!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader-v16/dist??ref--0-1!./src/component.vue?vue&type=template&id=1d380615
+// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js??ref--12-0!./node_modules/thread-loader/dist/cjs.js!./node_modules/babel-loader/lib!./node_modules/vue-loader-v16/dist/templateLoader.js??ref--6!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader-v16/dist??ref--0-1!./src/component.vue?vue&type=template&id=99b883ea
 
 function render(_ctx, _cache, $props, $setup, $data, $options) {
   const _directive_mask = Object(external_commonjs_vue_commonjs2_vue_root_Vue_["resolveDirective"])("mask");
@@ -339,7 +339,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     onInput: _cache[1] || (_cache[1] = (...args) => $options.onInput && $options.onInput(...args))
   }, null, 40, ["value"])), [[_directive_mask, $options.config]]);
 }
-// CONCATENATED MODULE: ./src/component.vue?vue&type=template&id=1d380615
+// CONCATENATED MODULE: ./src/component.vue?vue&type=template&id=99b883ea
 
 // CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js??ref--12-0!./node_modules/thread-loader/dist/cjs.js!./node_modules/babel-loader/lib!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader-v16/dist??ref--0-1!./src/component.vue?vue&type=script&lang=js
 
@@ -407,11 +407,11 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
 
     refresh(value) {
       this.display = value;
-      var value = masker(value, this.mask, this.masked, this.tokens);
+      var valueMasked = masker(value, this.mask, this.masked, this.tokens);
 
-      if (value !== this.lastValue) {
-        this.lastValue = value;
-        this.$emit('input', value);
+      if (valueMasked !== this.lastValue) {
+        this.lastValue = valueMasked;
+        this.$emit('input', valueMasked);
       }
     }
 
